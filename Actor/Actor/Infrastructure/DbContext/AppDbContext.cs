@@ -38,7 +38,7 @@ public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
             {
                 Id = 1, UserName = "Admin", PhoneNumber = "0397528860", Email = "admin@gmail.com",
                 Gender = GenderType.Male, CreateDate = DateTime.Now, Status = UserStatus.Approved, RoleId = 1,
-                WalletId = 1
+                WalletId = 1, Password = "12345"
             }
         );
 

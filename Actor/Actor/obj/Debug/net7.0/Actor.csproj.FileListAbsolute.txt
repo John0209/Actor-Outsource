@@ -75,3 +75,9 @@ D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\runtimes\win\l
 D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\Actor.xml
+D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\MediatR.dll
+D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\MediatR.Contracts.dll
+D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\Scrutor.dll
+D:\Outsource\Develop\Actor-Outsource\Actor\Actor\bin\Debug\net7.0\Scrutor.AspNetCore.dll

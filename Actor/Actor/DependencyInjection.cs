@@ -1,6 +1,9 @@
 using System.Reflection;
 using System.Text.Json.Serialization;
+using Actor.Application.UnitOfWork;
 using Actor.Infrastructure.DbContext;
+using Actor.Infrastructure.Interfaces.IRepositories;
+using Actor.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
@@ -15,23 +18,18 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(options => options.UseSqlServer(dbConnection));
 
         //Add repo
-        // services.Scan(scan => scan
-        //     .FromAssembliesOf(typeof(IBaseRepository<>), typeof(BaseRepository<>))
-        //     .AddClasses(classes => classes.AssignableTo(typeof(BaseRepository<>)), publicOnly: true)
-        //     .AsImplementedInterfaces()
-        //     .WithScopedLifetime());
+        services.Scan(scan => scan
+            .FromAssembliesOf(typeof(IBaseRepository<>), typeof(BaseRepository<>))
+            .AddClasses(classes => classes.AssignableTo(typeof(BaseRepository<>)), publicOnly: true)
+            .AsImplementedInterfaces()
+            .WithScopedLifetime());
 
-        //Add service
-        // services.Scan(scan => scan
-        //     .FromAssembliesOf(typeof(IBaseRepository<>), typeof(BaseRepository<>))
-        //     .AddClasses(classes => classes.Where(c => c.Name.EndsWith("Service")), publicOnly: true)
-        //     .AsImplementedInterfaces()
-        //     .WithScopedLifetime());
-        //
-        // services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddMediatR(x => { x.RegisterServicesFromAssembly(typeof(Program).Assembly); });
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         // services.AddScoped<ICloudConfig, CloudConfig>();
         // services.AddScoped<IMomoConfig, MomoConfig>();
-        
+
         services.AddControllers()
             //allow enum string value in swagger and front-end instead of int value
             .AddJsonOptions(options =>
@@ -47,17 +45,16 @@ public static class DependencyInjection
                 Format = "date",
                 Example = new OpenApiString(DateTime.Now.ToString("yyyy-MM-dd"))
             });
-            
+
             ops.SwaggerDoc("v1",
                 new OpenApiInfo
                 {
                     Title = "Actor", Version = "v1", Description = "ASP NET core API for Actor project."
                 });
-            
+
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             ops.IncludeXmlComments(xmlPath);
-            
         });
         return services;
     }

@@ -1,6 +1,7 @@
 ﻿using System.Net;
+using Application.ErrorHandlers;
 
-namespace Application.ErrorHandlers;
+namespace Actor.Application.ErrorHandlers;
 
 public class BadRequestException : BaseException
 {

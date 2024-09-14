@@ -318,6 +318,11 @@ namespace Actor.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -355,9 +360,10 @@ namespace Actor.Migrations
                         {
                             Id = 1,
                             Address = "",
-                            CreateDate = new DateTime(2024, 9, 14, 12, 21, 17, 390, DateTimeKind.Local).AddTicks(3835),
+                            CreateDate = new DateTime(2024, 9, 14, 18, 9, 52, 131, DateTimeKind.Local).AddTicks(7962),
                             Email = "admin@gmail.com",
                             Gender = 1,
+                            Password = "12345",
                             PhoneNumber = "0397528860",
                             PictureUrl = "",
                             RoleId = 1,

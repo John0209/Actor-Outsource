@@ -63,6 +63,7 @@ namespace Actor.Migrations
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PictureUrl = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     Address = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
@@ -268,8 +269,8 @@ namespace Actor.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Address", "CreateDate", "Email", "Gender", "PhoneNumber", "PictureUrl", "RoleId", "Status", "UserName", "WalletId" },
-                values: new object[] { 1, "", new DateTime(2024, 9, 14, 12, 21, 17, 390, DateTimeKind.Local).AddTicks(3835), "admin@gmail.com", 1, "0397528860", "", 1, 2, "Admin", 1 });
+                columns: new[] { "Id", "Address", "CreateDate", "Email", "Gender", "Password", "PhoneNumber", "PictureUrl", "RoleId", "Status", "UserName", "WalletId" },
+                values: new object[] { 1, "", new DateTime(2024, 9, 14, 18, 9, 52, 131, DateTimeKind.Local).AddTicks(7962), "admin@gmail.com", 1, "12345", "0397528860", "", 1, 2, "Admin", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Actors_UserId",
