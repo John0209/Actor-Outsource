@@ -12,8 +12,9 @@ public class User : BaseEntity
     [MaxLength(50)] public string? Address { get; set; } = string.Empty;
     [MaxLength(50)] public string Password { get; set; } = string.Empty;
     public DateTime CreateDate { get; set; }
-    public GenderType Gender { get; set; }
+    public GenderType? Gender { get; set; }
     public UserStatus Status { get; set; }
+    public int? VerifyCode { get; set; }
 
     // Relation
     public int RoleId { get; set; }

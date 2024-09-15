@@ -3,7 +3,6 @@ using Actor.Infrastructure.Interfaces.IRepositories;
 
 namespace Actor.Infrastructure.Repositories.IRepositories;
 
-public interface ICategoryRepository:IBaseRepository<Category>
+public interface IDirectorRepository : IBaseRepository<Director>
 {
-    
 }

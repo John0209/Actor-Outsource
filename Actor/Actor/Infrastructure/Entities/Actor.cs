@@ -4,7 +4,7 @@ namespace Actor.Infrastructure.Entities;
 
 public class Actor : BaseEntity
 {
-    [MaxLength(50)] public string University { get; set; } = string.Empty;
+    [MaxLength(50)] public string? University { get; set; }
     public int ExperienceYear { get; set; }
     public int EducationLevel { get; set; }
 

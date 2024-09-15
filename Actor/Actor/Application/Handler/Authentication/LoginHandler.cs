@@ -5,7 +5,7 @@ using Actor.Application.UnitOfWork;
 using Application.ErrorHandlers;
 using MediatR;
 
-namespace Actor.Application.Handler;
+namespace Actor.Application.Handler.Authentication;
 
 public class LoginHandler : IRequestHandler<LoginDtoRequest, LoginDtoResponse>
 {
@@ -19,7 +19,7 @@ public class LoginHandler : IRequestHandler<LoginDtoRequest, LoginDtoResponse>
     public Task<LoginDtoResponse> Handle(LoginDtoRequest request, CancellationToken cancellationToken)
     {
         var user = _unit.UserRepository.CheckLogin(request) ??
-                   throw new UnauthorizedException("Email or password is wrong");
+                   throw new UnauthorizedException("Email / password is wrong or account is not verified yet");
 
         return Task.FromResult(UserMapper.UserToLoginDtoResponse(user));
     }

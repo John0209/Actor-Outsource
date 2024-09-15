@@ -23,7 +23,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 
     public virtual void Update(T entity)
     {
-      DbSet.Update(entity);
+        DbSet.Update(entity);
     }
 
     public void Delete(T entity)

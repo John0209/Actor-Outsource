@@ -8,10 +8,12 @@ namespace Actor.Application.UnitOfWork;
 
 public class UnitOfWork : IUnitOfWork
 {
-    public UnitOfWork(AppDbContext context, IUserRepository userRepository)
+    public UnitOfWork(AppDbContext context, IUserRepository userRepository, IDirectorRepository directorRepository, IActorRepository actorRepository)
     {
         _context = context;
         UserRepository = userRepository;
+        DirectorRepository = directorRepository;
+        ActorRepository = actorRepository;
     }
 
     public void Dispose()
@@ -22,6 +24,8 @@ public class UnitOfWork : IUnitOfWork
     private readonly AppDbContext _context;
 
     public IUserRepository UserRepository { get; }
+    public IDirectorRepository DirectorRepository { get; }
+    public IActorRepository ActorRepository { get; }
 
     public async Task<int> SaveChangeAsync()
     {

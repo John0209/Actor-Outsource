@@ -2,7 +2,7 @@ namespace Actor.Infrastructure.Enum;
 
 public enum UserStatus
 {
-    Awaiting = 1,
-    Approved = 2,
+    Waiting = 1,
+    Verified = 2,
     Rejected = 3
 }
